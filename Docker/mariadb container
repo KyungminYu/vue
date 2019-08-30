@@ -1,0 +1,22 @@
+mariadb container
+docker container run -d -p 3306:3306 \
+-e MYSQL_ROOT_PASSWORD=root \
+-v /User/Shared/data/mariadb:/var/lib/mysql \
+--name mariadb mariadb
+
+nodejs, express module
+
+From ubuntu:18.04
+
+Run apt-get upgrade -y; apt-get update
+
+Run apt-get install -y nodejs npm git
+
+Run npm install express --save
+
+Run echo "const http = require('http');" > express.js
+Run echo "const express = require('express');" >> express.js
+Run echo "const app = express();" >> express.js
+Run echo "app.listen(3000, () => {console.log('Example app listening on port 3000!'); });" >> express.js
+Run echo "app.get('/getarray', (req, res) => { res.send([{ key : "hello "},{key : "hi"},{key : "bye"},{key : "good"}]) });" >> express.js
+CMD node express.js

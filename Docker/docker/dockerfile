@@ -1,0 +1,20 @@
+From ubuntu:18.04
+
+Run apt-get upgrade -y; apt-get update
+
+Run apt-get install -y nodejs npm git
+
+Run npm install express --save
+
+Run echo "const http = require('http');" > express.js
+Run echo "const express = require('express');" >> express.js
+Run echo "const app = express();" >> express.js
+Run echo "app.listen(3000, () => {console.log('Example app listening on port 3000!'); });" >> express.js
+Run echo "app.get( '/getarray', (req, res) => { " >> express.js
+Run echo "	console.log('express on docker!'); " >> express.js
+Run echo "	res.send([1,2,3,4,5]);" >> express.js
+Run echo "});" >> express.js
+
+Expose 3000
+
+CMD node express.js &
